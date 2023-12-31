@@ -33,11 +33,6 @@ function applyChanges() {
 
     if (CELL_SIZE > 0 && GRID_WIDTH > 0 && GRID_HEIGHT > 0 && TREE_DENSITY> 0 && FIRE_PROB > 0 && animationSpeed > 0) {
         document.querySelector('main').style.display = 'block';
-        console.log(CELL_SIZE);
-        console.log(GRID_WIDTH);
-        console.log(GRID_HEIGHT);
-        console.log(TREE_DENSITY);
-        console.log(FIRE_PROB);
     }
 }
 

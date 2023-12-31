@@ -10,7 +10,7 @@ Projekt ten obejmuje symulację pożaru lasu, w której użytkownik może dostos
 
 ## Instrukcja Obsługi
 
-1. Wypełnij formularz w lewej części strony, ustawiając rozmiar komórki, szerokość i wysokość siatki, prawdopodobieństwo zapłonu oraz szybkość animacji.
+1. Wypełnij formularz w prawej części strony, ustawiając rozmiar komórki, szerokość i wysokość siatki, prawdopodobieństwo zapłonu oraz szybkość animacji.
 2. Kliknij przycisk "Zatwierdź zmiany", aby zastosować wprowadzone parametry.
 3. Po zastosowaniu zmian, plansza oraz statystyki zostaną wyświetlone na stronie.
 4. Kliknij na komórkę na planszy, aby ręcznie zainicjować pożar w danym miejscu.
@@ -24,7 +24,13 @@ Projekt ten obejmuje symulację pożaru lasu, w której użytkownik może dostos
 
 ## Uruchomienie
 
-Otwórz plik `index.html` w przeglądarce internetowej.
+- Pobrać repozytorium. Do wyboru dwie opcje
+    ```
+    git clone https://github.com/DLQuake/Forest-Fire-Simulation.git
+    ```
+    [Pobierz ZIP](https://github.com/DLQuake/Forest-Fire-Simulation/archive/refs/heads/main.zip)
+
+- Po pobraniu repozytorium otwórz plik `index.html` w przeglądarce internetowej lub wejść do strony poprzez ten [link](https://dlquake.github.io/Forest-Fire-Simulation/).
 
 ## Autor
 

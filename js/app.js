@@ -2,6 +2,7 @@ let CELL_SIZE = 0;
 let GRID_WIDTH = 0;
 let GRID_HEIGHT = 0;
 let FIRE_PROB = 0;
+let TREE_DENSITY = 0;
 
 let grid;
 let fireStarted;
@@ -15,10 +16,11 @@ function applyChanges() {
     CELL_SIZE = parseInt(document.getElementById("cell-size").value);
     GRID_WIDTH = parseInt(document.getElementById("grid-width").value);
     GRID_HEIGHT = parseInt(document.getElementById("grid-height").value);
+    TREE_DENSITY = parseInt(document.getElementById("tree-density").value);
     FIRE_PROB = parseFloat(document.getElementById("fire-prob").value);
     const animationSpeed = parseInt(document.getElementById("animation-speed").value);
 
-    if (CELL_SIZE === 0 || GRID_WIDTH === 0 || GRID_HEIGHT === 0 || FIRE_PROB === 0 || animationSpeed === 0) {
+    if (CELL_SIZE === 0 || GRID_WIDTH === 0 || GRID_HEIGHT === 0 || TREE_DENSITY === 0 || FIRE_PROB === 0 || animationSpeed === 0) {
         alert("Nie można uruchomić symulacji. Proszę ustawić wartości większe niż zero dla każdego parametru w formularzu.");
         return;
     }
@@ -29,10 +31,14 @@ function applyChanges() {
 
     changesApplied = true;
 
-    if (CELL_SIZE > 0 && GRID_WIDTH > 0 && GRID_HEIGHT > 0 && FIRE_PROB > 0 && animationSpeed > 0) {
+    if (CELL_SIZE > 0 && GRID_WIDTH > 0 && GRID_HEIGHT > 0 && TREE_DENSITY> 0 && FIRE_PROB > 0 && animationSpeed > 0) {
         document.querySelector('main').style.display = 'block';
     }
 }
+
+document.getElementById("tree-density").addEventListener("input", function() {
+    document.getElementById("tree-density-output").value = this.value + "%";
+});
 
 document.getElementById("fire-prob").addEventListener("input", function () {
     const probabilityValue = parseFloat((this.value / 100).toFixed(2));
@@ -46,13 +52,14 @@ document.getElementById("animation-speed").addEventListener("input", function ()
 
 function resetSimulation() {
     grid = Array.from({ length: GRID_WIDTH }, () =>
-        Array.from({ length: GRID_HEIGHT }, () => (random() < 0.5 ? "tree" : "empty"))
+        Array.from({ length: GRID_HEIGHT }, () => (random() < TREE_DENSITY / 100 ? "tree" : "empty"))
     );
     fireSources = [];
     fireStarted = false;
     isForestBurned = false;
     burnedTreesCount = 0;
 }
+
 
 function setup() {
     createCanvas(GRID_WIDTH * CELL_SIZE, GRID_HEIGHT * CELL_SIZE);

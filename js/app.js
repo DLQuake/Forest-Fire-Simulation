@@ -17,7 +17,7 @@ function applyChanges() {
     GRID_WIDTH = parseInt(document.getElementById("grid-width").value);
     GRID_HEIGHT = parseInt(document.getElementById("grid-height").value);
     TREE_DENSITY = parseInt(document.getElementById("tree-density").value);
-    FIRE_PROB = parseFloat(document.getElementById("fire-prob").value);
+    FIRE_PROB = parseFloat(document.getElementById("fire-prob").value)/100;
     const animationSpeed = parseInt(document.getElementById("animation-speed").value);
 
     if (CELL_SIZE === 0 || GRID_WIDTH === 0 || GRID_HEIGHT === 0 || TREE_DENSITY === 0 || FIRE_PROB === 0 || animationSpeed === 0) {
@@ -33,6 +33,11 @@ function applyChanges() {
 
     if (CELL_SIZE > 0 && GRID_WIDTH > 0 && GRID_HEIGHT > 0 && TREE_DENSITY> 0 && FIRE_PROB > 0 && animationSpeed > 0) {
         document.querySelector('main').style.display = 'block';
+        console.log(CELL_SIZE);
+        console.log(GRID_WIDTH);
+        console.log(GRID_HEIGHT);
+        console.log(TREE_DENSITY);
+        console.log(FIRE_PROB);
     }
 }
 

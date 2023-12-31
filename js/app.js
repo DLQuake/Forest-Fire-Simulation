@@ -38,6 +38,8 @@ function applyChanges() {
 
 document.getElementById("tree-density").addEventListener("input", function() {
     document.getElementById("tree-density-output").value = this.value + "%";
+    document.getElementById("tree-density-output").textContent = `${this.value}%`;
+    this.value = probabilityValue * 100;
 });
 
 document.getElementById("fire-prob").addEventListener("input", function () {

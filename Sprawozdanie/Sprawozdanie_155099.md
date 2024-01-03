@@ -1,9 +1,9 @@
-<h1 align="center">Sprawozdanie z Projektu "Symulacja Pożaru Lasu"<br>
+<h1 align="center">"Symulacja Pożaru Lasu": Sprawozdanie z Projektu<br>
 Autor: Dominik Lewczyński, 155099</h1>
 
-## **1. Opis problemu**
+## **1. Opis Problemu**
 
-Zjawisko pożaru lasu jest jednym z istotnych problemów ekologicznych, które mają poważne konsekwencje dla środowiska naturalnego. Skutki pożarów lasów obejmują utratę różnorodności biologicznej, zniszczenie siedlisk, emisję dużych ilości gazów cieplarnianych, a także wpływ na jakość powietrza. Symulacje komputerowe pozwalają na lepsze zrozumienie dynamiki pożarów lasów, co z kolei może wspomóc w opracowywaniu strategii zarządzania lasem i przeciwdziałania skutkom pożarów.
+Zjawisko pożaru lasu stanowi istotny problem ekologiczny, generujący poważne konsekwencje dla środowiska naturalnego. Skutki pożarów lasów obejmują utratę różnorodności biologicznej, degradację siedlisk, emisję znacznych ilości gazów cieplarnianych oraz wpływ na jakość powietrza. Symulacje komputerowe umożliwiają lepsze zrozumienie dynamiki pożarów lasów, co z kolei może wspomagać opracowywanie skutecznych strategii zarządzania lasem i przeciwdziałania skutkom pożarów.
 
 ## **2. Cel Projektu**
 
@@ -11,24 +11,28 @@ Celem projektu jest stworzenie interaktywnej symulacji pożaru lasu, która umo�
 
 ## **3. Użyte technologie**
 
-Do stworzenia projektu wykorzystano
+Projekt został zrealizowany przy użyciu kilku kluczowych technologii, które współpracują ze sobą, aby stworzyć kompleksową symulację pożaru lasu. Poniżej przedstawiono główne technologie użyte w projekcie:
 
-- HTML do struktury strony
-- CSS oraz Bootstrap do ustawienia wyglądu strony
-- JavaScript z Biblioteką p5.js do programowania logiki strony
+- **HTML:** Wykorzystano HTML do zdefiniowania struktury strony internetowej. To podstawowe narzędzie do tworzenia szkieletu projektu, umożliwiające określenie elementów, ich układu i relacji.
+
+- **CSS oraz Bootstrap:** Do nadania estetycznego wyglądu stronie użyto CSS oraz frameworka Bootstrap. CSS odpowiada za stylowanie elementów, a Bootstrap dostarcza gotowych komponentów i narzędzi ułatwiających responsywność i atrakcyjny wygląd.
+
+- **JavaScript z Biblioteką [p5.js](https://p5js.org/):** Główną część logiki strony oraz animacji zapewnia JavaScript wraz z biblioteką p5.js. P5.js jest narzędziem do tworzenia grafiki i animacji w języku JavaScript, co pozwoliło na płynne i interaktywne przedstawienie symulacji pożaru lasu.
+
+Te technologie wspólnie umożliwiły stworzenie interaktywnej i atrakcyjnej wizualizacji, jednocześnie gwarantując responsywność i czytelność strony.
 
 ## **4. Metoda wykonania**
 
 Projekt wykorzystuje podejście oparte na automacie komórkowym do symulacji pożaru lasu. Poniżej przedstawiono kluczowe elementy algorytmu oraz sposób implementacji:
 
-**1)	Inicjalizacja Parametrów:**
+**1) Inicjalizacja Parametrów:**
 
 - a) **`CELL_SIZE`**: Rozmiar pojedynczej komórki (piksele).
 - b) **`GRID_WIDTH`** i **`GRID_HEIGHT`**: Szerokość i wysokość siatki komórek.
 - c) **`TREE_DENSITY`**: Procentowa gęstość drzew na siatce.
 - d) **`FIRE_PROB`**: Prawdopodobieństwo zapłonu drzewa, jeśli ma sąsiada płonącego.
 
-**2)	Inicjalizacja Zmiennych Globalnych:**
+**2) Inicjalizacja Zmiennych Globalnych:**
 
 - a) **`grid`**: Tablica dwuwymiarowa przechowująca stany komórek (drzewo, ogień, popiół).
 - b) **`fireStarted`**: Flaga oznaczająca, czy pożar został zainicjowany.
@@ -75,7 +79,6 @@ Projekt wykorzystuje podejście oparte na automacie komórkowym do symulacji po�
 **11) Widoczność Planszy:**
 
 - a) Po zastosowaniu zmian, plansza w elemencie **`<main>`** jest wyświetlana.
-
 
 
 ## **5. Instalacja Dodatkowego Oprogramowania**

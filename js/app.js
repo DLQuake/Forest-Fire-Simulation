@@ -106,7 +106,7 @@ function draw() {
 
 // Funkcja rysująca siatkę na podstawie stanu planszy
 function drawGrid() {
-    noStroke();
+    // noStroke();
 
     for (let i = 0; i < GRID_WIDTH; i++) {
         for (let j = 0; j < GRID_HEIGHT; j++) {

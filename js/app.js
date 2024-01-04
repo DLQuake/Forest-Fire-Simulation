@@ -139,6 +139,7 @@ function mousePressed() {
         fireSources.push({ x: i, y: j });
         grid[i][j] = "fire";
         fireStarted = true;
+        burnedTreesCount++;
     }
 }
 

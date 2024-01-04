@@ -83,7 +83,7 @@ Projekt wykorzystuje podejście oparte na automacie komórkowym do symulacji po�
 
 ## **5. Instalacja Dodatkowego Oprogramowania**
 
-Do uruchomienia projektu nie są wymagane dodatkowe instalacje. Projekt wykorzystuje jedynie przeglądarkę internetową do uruchomienia aplikacji. Po pobraniu plików należy otworzyć w przeglądarce internetowej plik index.html. Można także wejść na stronę **https://dlquake.github.io/Forest-Fire-Simulation/** gdzie będzie dostępny projekt bez potrzeby pobierania plików.
+Do uruchomienia projektu nie są wymagane dodatkowe instalacje. Projekt wykorzystuje jedynie przeglądarkę internetową do uruchomienia aplikacji. Po pobraniu plików na przykład z repozytorium na platformie **[GitHub](https://github.com/DLQuake/Forest-Fire-Simulation)** należy otworzyć w przeglądarce internetowej plik index.html. Można także wejść na stronę **https://dlquake.github.io/Forest-Fire-Simulation/** gdzie będzie dostępny projekt bez potrzeby pobierania plików.
 
 ## **6. Wizualizacje**
 

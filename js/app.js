@@ -21,12 +21,11 @@ function applyChanges() {
     GRID_WIDTH = parseInt(document.getElementById("grid-width").value);
     GRID_HEIGHT = parseInt(document.getElementById("grid-height").value);
     TREE_DENSITY = parseInt(document.getElementById("tree-density").value);
-    // Przypisanie prawdopodobieństwa zapłonu jako liczby zmiennoprzecinkowej między 0 a 1
     FIRE_PROB = parseFloat(document.getElementById("fire-prob").value) / 100;
-    const animationSpeed = parseInt(document.getElementById("animation-speed").value);
+    let animationSpeed = parseInt(document.getElementById("animation-speed").value);
 
     // Sprawdzenie, czy wszystkie parametry są większe niż zero
-    if (CELL_SIZE === 0 || GRID_WIDTH === 0 || GRID_HEIGHT === 0 || TREE_DENSITY === 0 || FIRE_PROB === 0 || animationSpeed === 0) {
+    if (![CELL_SIZE, GRID_WIDTH, GRID_HEIGHT, TREE_DENSITY, FIRE_PROB, animationSpeed].every(param => param > 0)) {
         alert("Nie można uruchomić symulacji. Proszę ustawić wartości większe niż zero dla każdego parametru w formularzu.");
         return;
     }
@@ -48,27 +47,19 @@ function applyChanges() {
 
 // Obsługa zdarzenia zmiany gęstości drzew w formularzu
 document.getElementById("tree-density").addEventListener("input", function () {
-    // Aktualizacja wartości i wyświetlenie procentów
-    document.getElementById("tree-density-output").value = this.value + "%";
-    document.getElementById("tree-density-output").textContent = `${this.value}%`;
-    // Konwersja wartości do zakresu 0-100
-    this.value = probabilityValue * 100;
+    document.getElementById("tree-density-output").textContent = `${this.value} %`;
 });
 
 // Obsługa zdarzenia zmiany prawdopodobieństwa zapłonu w formularzu
 document.getElementById("fire-prob").addEventListener("input", function () {
-    // Konwersja wartości do liczby zmiennoprzecinkowej między 0 a 1
-    const probabilityValue = parseFloat((this.value / 100).toFixed(2));
-    // Aktualizacja wartości i wyświetlenie procentów
-    document.getElementById("fire-prob-value").textContent = `${this.value}%`;
-    this.value = probabilityValue * 100;
+    document.getElementById("fire-prob-value").textContent = `${this.value} %`;
 });
 
 // Obsługa zdarzenia zmiany prędkości animacji w formularzu
 document.getElementById("animation-speed").addEventListener("input", function () {
-    // Aktualizacja wartości wyświetlanej prędkości
-    document.getElementById("animation-speed-value").textContent = this.value;
+    document.getElementById("animation-speed-value").textContent = `${this.value} FPS`;
 });
+
 
 // Funkcja resetująca symulację do początkowego stanu
 function resetSimulation() {
@@ -96,20 +87,15 @@ function draw() {
         // Rysowanie siatki
         drawGrid();
 
-        // Rozpoczęcie pożaru z określonych źródeł
-        if (!fireStarted) {
-            for (let source of fireSources) {
-                startFire(source.x, source.y);
-            }
-        } else {
-            // Aktualizacja siatki w kolejnych krokach symulacji
+        // Aktualizacja siatki w kolejnych krokach symulacji
+        if (fireStarted) {
             updateGrid();
+        }
 
-            // Sprawdzenie, czy cały las spłonął
-            if (!isForestBurned && isEntireForestBurned()) {
-                showBurnedMessage();
-                isForestBurned = true;
-            }
+        // Sprawdzenie, czy cały las spłonął
+        if (!isForestBurned && isEntireForestBurned()) {
+            showBurnedMessage();
+            isForestBurned = true;
         }
 
         // Rysowanie statystyk
@@ -117,8 +103,11 @@ function draw() {
     }
 }
 
+
 // Funkcja rysująca siatkę na podstawie stanu planszy
 function drawGrid() {
+    noStroke();
+
     for (let i = 0; i < GRID_WIDTH; i++) {
         for (let j = 0; j < GRID_HEIGHT; j++) {
             let state = grid[i][j];
@@ -150,7 +139,6 @@ function mousePressed() {
         fireSources.push({ x: i, y: j });
         grid[i][j] = "fire";
         fireStarted = true;
-        burnedTreesCount++;
     }
 }
 
